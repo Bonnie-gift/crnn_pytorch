@@ -64,10 +64,6 @@ image = torch.FloatTensor(opt.batchSize, 3, opt.imgH, opt.imgH)  # 图片尺寸
 text = torch.IntTensor(opt.batchSize * 10)  # 假设每个句子长为5
 length = torch.IntTensor(opt.batchSize)
 
-# 输出类别数，即字符个数+空白符
-nclass = len(alphabet) + 1
-# 输入Channel
-nc = 1
 
 #alphabet 设置
 file = open("./label.txt", "r",encoding='utf-8')
@@ -76,6 +72,13 @@ for line in file.readlines():
     line=line.strip('\n')
     alphabet=alphabet+line
 alphabet=u''+alphabet
+
+# 输出类别数，即字符个数+空白符
+nclass = len(alphabet) + 1
+# 输入Channel
+nc = 1
+
+
 # 修改为指定字典集，使用英文字典时忽略大小写
 converter = utils.strLabelConverter(alphabet, ignore_case=True)
 # CTCLoss
