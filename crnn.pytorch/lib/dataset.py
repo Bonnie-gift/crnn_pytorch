@@ -41,8 +41,9 @@ class lmdbDataset(Dataset):
     def __getitem__(self, index):
         assert index <= len(self), 'index range error'
         index += 1
+        print(index)
         with self.env.begin(write=False) as txn:
-            img_key = 'image-%09d' % index
+            img_key = b'image-%09d' % index
             imgbuf = txn.get(img_key)
 
             buf = six.BytesIO()
