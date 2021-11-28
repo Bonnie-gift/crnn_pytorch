@@ -196,7 +196,7 @@ def train():
 
     test_dataset = dataset.lmdbDataset(
         root=opt.valRoot, transform=dataset.resizeNormalize((100, 32)))
-
+    print('Success')
     # 训练1个batch
     def train_batch():
         data = train_iter.next()
