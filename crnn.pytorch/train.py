@@ -253,7 +253,7 @@ def train():
         scheduler.step()
 
     # test
-    val(test_dataset, flag=True)
+    #val(test_dataset, flag=True)
 
 
 if __name__ == '__main__':
