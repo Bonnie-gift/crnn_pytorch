@@ -48,6 +48,7 @@ class lmdbDataset(Dataset):
             buf = six.BytesIO()
             buf.write(imgbuf)
             buf.seek(0)
+            print(buf)
             try:
                 img = Image.open(buf).convert('L')
             except IOError:
