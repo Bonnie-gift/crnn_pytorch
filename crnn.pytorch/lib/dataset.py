@@ -45,7 +45,7 @@ class lmdbDataset(Dataset):
         with self.env.begin(write=False) as txn:
             img_key = 'image-%09d' % index
             print(img_key)
-            imgbuf = txn.get(img_key)
+            imgbuf = txn.get(img_key).encode()
             print(imgbuf)
             buf = six.BytesIO()
             buf.write(imgbuf)
