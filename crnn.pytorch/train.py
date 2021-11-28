@@ -12,7 +12,7 @@ import os
 from lib.models.crnn import CRNN
 from lib.models.crnn import BidirectionalLSTM
 from lib import dataset, utils
-from Chinese_alphabet import alphabet
+
 
 # 配置参数
 parser = argparse.ArgumentParser()
@@ -69,6 +69,13 @@ nclass = len(alphabet) + 1
 # 输入Channel
 nc = 1
 
+#alphabet 设置
+file = open("./label.txt", "r",encoding='utf-8')
+alphabet=''
+for line in file.readlines():
+    line=line.strip('\n')
+    alphabet=alphabet+line
+alphabet=u''+alphabet
 # 修改为指定字典集，使用英文字典时忽略大小写
 converter = utils.strLabelConverter(alphabet, ignore_case=True)
 # CTCLoss
