@@ -44,13 +44,12 @@ class lmdbDataset(Dataset):
         print(index)
         with self.env.begin(write=False) as txn:
             img_key = b'image-%09d' % index
-            print(img_key)
             imgbuf = txn.get(img_key)
             print(imgbuf)
             buf = six.BytesIO()
             buf.write(imgbuf)
             buf.seek(0)
-            print(buf)
+       
             try:
                 img = Image.open(buf).convert('L')
             except IOError:
