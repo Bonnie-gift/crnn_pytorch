@@ -200,6 +200,7 @@ def train():
     # 训练1个batch
     def train_batch():
         data = train_iter.next()
+        print('success3')
         cpu_images, cpu_texts = data
         batch_size = cpu_images.size(0)
         utils.loadData(image, cpu_images)
