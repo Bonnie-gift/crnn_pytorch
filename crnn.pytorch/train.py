@@ -199,6 +199,7 @@ def train():
     print('Success')
     # 训练1个batch
     def train_batch():
+        print('success4')
         data = train_iter.next()
         print('success3')
         cpu_images, cpu_texts = data
