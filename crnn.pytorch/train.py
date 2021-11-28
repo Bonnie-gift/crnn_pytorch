@@ -220,6 +220,7 @@ def train():
         i = 0
         while i < len(train_loader):
             crnn.train()
+            print('success2')
             cost = train_batch()
             loss_avg.add(cost)
             i += 1
