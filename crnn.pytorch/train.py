@@ -133,7 +133,11 @@ def val(val_set, max_iter=100, flag=False):
 
         with torch.no_grad():
             crnn.eval()
+            print('image')
+            print(image)
             preds = crnn(image)
+            print('preds')
+            print(preds)
             crnn.train()
 
         preds_size = torch.IntTensor([preds.size(0)] * batch_size)
