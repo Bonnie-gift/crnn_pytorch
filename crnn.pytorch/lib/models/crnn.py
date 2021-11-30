@@ -77,6 +77,8 @@ class CRNN(nn.Module):
             BidirectionalLSTM(nh, nh, nclass))
 
     def forward(self, input):
+        print('input')
+        print(input)
         # conv features
         conv = self.cnn(input)
         print(conv.size())
