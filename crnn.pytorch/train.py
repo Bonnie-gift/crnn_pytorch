@@ -120,7 +120,7 @@ def val(val_set, max_iter=100, flag=False):
     for i in range(max_iter):
         try:
             data = next(val_iter)
-        except StopInteration:
+        except StopIteration:
             val_iter = iter(data_loader)
             data = next(val_iter)
         cpu_images, cpu_texts = data
