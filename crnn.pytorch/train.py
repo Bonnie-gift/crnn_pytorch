@@ -142,6 +142,7 @@ def val(val_set, max_iter=100, flag=False):
 
         _, preds = preds.max(2)
         preds = preds.transpose(1, 0).contiguous().view(-1)
+        print(preds)
         sim_preds = converter.decode(preds.data, preds_size.data, raw=False)
         for pred, target in zip(sim_preds, cpu_texts):
             print('target %s' % target)
