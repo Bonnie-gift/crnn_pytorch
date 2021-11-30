@@ -229,6 +229,7 @@ def train():
         preds = crnn(image)
         preds_size = torch.IntTensor([preds.size(0)] * batch_size)
         loss = criterion(preds, text, preds_size, length)
+        print('loss_train %f' % loss)
         crnn.zero_grad()
         loss.backward()
         optimizer.step()
