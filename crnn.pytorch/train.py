@@ -118,7 +118,11 @@ def val(val_set, max_iter=100, flag=False):
         max_iter = max(max_iter, len(data_loader))
 
     for i in range(max_iter):
-        data = val_iter.next()
+        try:
+            data = next(val_iter)
+        except StopInteration:
+            val_iter = iter(data_loader)
+            data = next(val_iter)
         cpu_images, cpu_texts = data
         batch_size = cpu_images.size(0)
         utils.loadData(image, cpu_images)
@@ -253,7 +257,7 @@ def train():
         scheduler.step()
 
     # test
-    #val(test_dataset, flag=True)
+    val(test_dataset, flag=True)
 
 
 if __name__ == '__main__':
