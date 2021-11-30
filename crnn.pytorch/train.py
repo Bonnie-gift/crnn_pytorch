@@ -114,6 +114,7 @@ def val(val_set, max_iter=100, flag=False):
     loss_avg = utils.averager()
     if not flag:
         max_iter = min(max_iter, len(data_loader))
+        print('max_iter %d' % max_iter)
     else:
         max_iter = max(max_iter, len(data_loader))
 
@@ -143,6 +144,8 @@ def val(val_set, max_iter=100, flag=False):
         preds = preds.transpose(1, 0).contiguous().view(-1)
         sim_preds = converter.decode(preds.data, preds_size.data, raw=False)
         for pred, target in zip(sim_preds, cpu_texts):
+            print('target %s' % target)
+            print('pred %s' % pred)
             if pred == target:
                 n_correct += 1
 
