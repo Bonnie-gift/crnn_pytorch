@@ -87,7 +87,7 @@ class CRNN(nn.Module):
 
         # rnn features
         output = self.rnn(conv)
-
+        print(output)
         return output
 
 
