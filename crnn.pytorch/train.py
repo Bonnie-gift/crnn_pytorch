@@ -114,10 +114,10 @@ def val(val_set, max_iter=100, flag=False):
     loss_avg = utils.averager()
     if not flag:
         max_iter = min(max_iter, len(data_loader))
-        print('max_iter %d' % max_iter)
+        
     else:
         max_iter = max(max_iter, len(data_loader))
-
+    print('max_iter %d' % max_iter)
     for i in range(max_iter):
         try:
             data = next(val_iter)
